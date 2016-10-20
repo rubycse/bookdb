@@ -1,5 +1,6 @@
 package net.bookdb.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,11 +9,16 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 10/20/16.
  */
 
-@RestController
+@Controller
 public class BookController {
 
     @GetMapping("/")
     public String hello() {
-        return "hello from book world";
+        return "redirect:create";
+    }
+
+    @GetMapping("/create")
+    public String create() {
+        return "create";
     }
 }
