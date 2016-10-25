@@ -29,6 +29,9 @@ public class Book {
     @Size(max = 1000)
     private String description;
 
+    @Embedded
+    private Attachment pdf;
+
     public long getId() {
         return id;
     }
@@ -59,5 +62,13 @@ public class Book {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Attachment getPdf() {
+        return pdf;
+    }
+
+    public void setPdf(Attachment pdf) {
+        this.pdf = pdf;
     }
 }

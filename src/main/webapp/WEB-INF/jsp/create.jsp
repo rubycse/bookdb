@@ -39,8 +39,16 @@
                 </div>
             </div>
             <div class="form-group">
+                <label for="bookPdf" class="col-lg-2 control-label">Upload Book</label>
+                <div class="col-lg-10">
+                    <input id="bookPdf" type="file" name="bookPdf" accept=".pdf"/>
+                    <br />
+                    <span id="bookPdfMessage"></span>
+                </div>
+            </div>
+            <div class="form-group">
                 <div class="col-lg-10 col-lg-offset-2">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </div>
         </fieldset>

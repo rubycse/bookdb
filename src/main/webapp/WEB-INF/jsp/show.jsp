@@ -26,6 +26,16 @@
             </div>
         </div>
     </div>
+
+    <c:if test="${not empty book.pdf}">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="bs-component">
+                    <a class="btn btn-primary btn-lg" href="<c:url value="/downloadPdf/${book.id}"/>">Download</a>
+                </div>
+            </div>
+        </div>
+    </c:if>
 </div>
 </body>
 </html>
