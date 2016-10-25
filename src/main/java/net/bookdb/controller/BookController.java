@@ -4,14 +4,19 @@ import net.bookdb.dao.BookRepository;
 import net.bookdb.domain.Attachment;
 import net.bookdb.domain.Book;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomNumberEditor;
+import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.validation.Valid;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 
@@ -26,13 +31,18 @@ public class BookController {
     @Autowired
     private BookRepository bookRepository;
 
+    @InitBinder
+    public void initBinder(WebDataBinder binder) {
+        binder.registerCustomEditor(String.class, new StringTrimmerEditor(true));
+    }
+
     @GetMapping("/")
     public String hello() {
         return "redirect:/list";
     }
 
     @GetMapping("/create")
-    public String create() {
+    public String create(@ModelAttribute Book book) {
         return "create";
     }
 
@@ -43,9 +53,13 @@ public class BookController {
     }
 
     @PostMapping("/save")
-    public String save(@ModelAttribute Book book,
+    public String save(@Valid @ModelAttribute Book book,
+                       BindingResult result,
                        @RequestParam("bookPdf") MultipartFile file) throws IOException {
 
+        if (result.hasErrors()) {
+            return "create";
+        }
         if (!file.isEmpty()) {
             Attachment attachment = new Attachment(file.getOriginalFilename(), file.getBytes(), file.getSize());
             book.setPdf(attachment);

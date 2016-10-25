@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <link href='<c:url value="/images/favicon.ico"/>' rel="icon" type="image/x-icon">
@@ -20,24 +21,31 @@
         </div>
     </div>
 
-    <form class="form-horizontal" method="post" action="save" enctype="multipart/form-data">
+    <form:form class="form-horizontal" method="post" action="save" enctype="multipart/form-data" commandName="book">
+
+        <form:errors path="*">
+            <div class="alert alert-danger">
+                <strong>Title or Author can not be empty</strong>
+            </div>
+        </form:errors>
+
         <fieldset>
             <div class="form-group">
                 <label for="title" class="col-lg-2 control-label">Title</label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control" id="title" name="title">
+                    <form:input type="text" class="form-control" id="title" name="title" path="title"/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="author" class="col-lg-2 control-label">Author</label>
                 <div class="col-lg-10">
-                    <input type="text" class="form-control" id="author" name="author">
+                    <form:input type="text" class="form-control" id="author" name="author" path="author"/>
                 </div>
             </div>
             <div class="form-group">
                 <label for="description" class="col-lg-2 control-label">Description</label>
                 <div class="col-lg-10">
-                    <textarea class="form-control" rows="3" id="description" name="description"></textarea>
+                    <form:textarea class="form-control" rows="3" id="description" name="description" path="description"/>
                 </div>
             </div>
             <div class="form-group">
@@ -54,7 +62,7 @@
                 </div>
             </div>
         </fieldset>
-    </form>
+    </form:form>
 </div>
 </body>
 </html>

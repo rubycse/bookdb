@@ -25,7 +25,6 @@ public class Book {
     @Size(max = 250)
     private String author;
 
-    @NotNull
     @Size(max = 1000)
     private String description;
 
