@@ -24,6 +24,9 @@ repositories {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
+ext.hibernateVersion='4.3.11.Final'
+ext.hibernateValidatorVersion='5.2.2.Final'
+
 dependencies {
     // tag::jetty[]
     compile("org.springframework.boot:spring-boot-starter-web") {
@@ -37,5 +40,15 @@ dependencies {
     testCompile("junit:junit")
 
     compile("org.apache.tomcat.embed:tomcat-embed-jasper") // for jsp
-    compile("opensymphony:sitemesh:2.4.2")
+
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+
+    compile "org.hibernate:hibernate-entitymanager:$hibernateVersion"
+    compile "org.hibernate:hibernate-core:$hibernateVersion"
+    compile "org.hibernate:hibernate-validator:$hibernateValidatorVersion"
+    compile "org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final"
+
+    compile 'mysql:mysql-connector-java:5.1.38'
+
+    compile 'jstl:jstl:1.2'
 }
