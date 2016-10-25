@@ -3,9 +3,11 @@
 <head>
     <link href='<c:url value="/images/favicon.ico"/>' rel="icon" type="image/x-icon">
 
-    <link href='<c:url value="/bootstrap/3.3.6/standstone/bootstrap.min.css"/>' rel="stylesheet" type="text/css">
+    <link href='<c:url value="/bootstrap/3.3.6/yeti/bootstrap.min.css"/>' rel="stylesheet" type="text/css">
     <script src="<c:url value="/js/jquery-1.11.3.min.js"/>" type="text/javascript"></script>
     <script src="<c:url value="/bootstrap/3.3.6/js/bootstrap.min.js"/>" type="text/javascript"></script>
+
+    <link href='<c:url value="/css/book.css"/>' rel="stylesheet" type="text/css">
 </head>
 <body>
 <jsp:include page="_navbar.jsp"/>

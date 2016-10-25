@@ -1,0 +1,11 @@
+.table {
+    font-size: 14px;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    line-height: 2.2;
+}
+
+label, .control-label, .help-block, .checkbox, .radio {
+    font-size: 14px;
+}

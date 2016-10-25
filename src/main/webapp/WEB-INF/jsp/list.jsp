@@ -5,9 +5,12 @@
 <head>
     <link href='<c:url value="/images/favicon.ico"/>' rel="icon" type="image/x-icon">
 
-    <link href='<c:url value="/bootstrap/3.3.6/standstone/bootstrap.min.css"/>' rel="stylesheet" type="text/css">
+    <link href='<c:url value="/bootstrap/3.3.6/yeti/bootstrap.min.css"/>' rel="stylesheet" type="text/css">
     <script src="<c:url value="/js/jquery-1.11.3.min.js"/>" type="text/javascript"></script>
     <script src="<c:url value="/bootstrap/3.3.6/js/bootstrap.min.js"/>" type="text/javascript"></script>
+
+    <link href='<c:url value="/css/book.css"/>' rel="stylesheet" type="text/css">
+
     <title>Books</title>
 </head>
 <body>
@@ -23,7 +26,7 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="bs-component">
-                <table class="table table-striped table-hover ">
+                <table class="table table-striped table-hover book-table">
                     <thead>
                     <tr>
                         <th>Title</th>
